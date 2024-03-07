@@ -4,7 +4,6 @@ import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.json.TestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.nio.file.Files;
 import java.util.List;
 

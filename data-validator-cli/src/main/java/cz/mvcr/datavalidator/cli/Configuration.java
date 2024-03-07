@@ -1,7 +1,6 @@
 package cz.mvcr.datavalidator.cli;
 
 import cz.mvcr.datavalidator.core.DataValidator;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

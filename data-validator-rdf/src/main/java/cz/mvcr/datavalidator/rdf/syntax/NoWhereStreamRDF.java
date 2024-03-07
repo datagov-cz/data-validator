@@ -6,21 +6,19 @@ import org.apache.jena.sparql.core.Quad;
 
 public class NoWhereStreamRDF implements StreamRDF {
 
-    private long size = 0;
-
     @Override
     public void start() {
-        size = 0;
+        // No action.
     }
 
     @Override
     public void triple(Triple triple) {
-        size += 1;
+        // No action.
     }
 
     @Override
     public void quad(Quad quad) {
-        size += 1;
+        // No action.
     }
 
     @Override

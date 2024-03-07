@@ -11,7 +11,6 @@ import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +18,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ConfigurationAdapter {
 
@@ -29,7 +27,7 @@ public class ConfigurationAdapter {
         return (new ConfigurationAdapter())
                 .onConfiguration(resource, statements);
     }
-    
+
     public static Configuration load(File file) throws IOException {
         List<Statement> statements = RdfAdapter.asStatements(file);
         Resource resource = getConfiguration(statements);
@@ -44,8 +42,8 @@ public class ConfigurationAdapter {
                 .filter(st -> Vocabulary.Configuration.equals(
                         st.getObject().stringValue()))
                 .map(Statement::getSubject)
-                .collect(Collectors.toList());
-        if (configurations.size() == 0) {
+                .toList();
+        if (configurations.isEmpty()) {
             throw new IOException("No configuration detected.");
         }
         if (configurations.size() > 1) {

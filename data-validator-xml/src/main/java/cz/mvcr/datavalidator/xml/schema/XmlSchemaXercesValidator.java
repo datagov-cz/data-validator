@@ -9,7 +9,6 @@ import org.eclipse.rdf4j.model.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -139,7 +138,7 @@ public class XmlSchemaXercesValidator implements ConfigurableValidator {
     }
 
     private static URL createUrl(String location) throws MalformedURLException {
-        return new URL(URI.create(location).toASCIIString());
+        return URI.create(URI.create(location).toASCIIString()).toURL();
     }
 
 }

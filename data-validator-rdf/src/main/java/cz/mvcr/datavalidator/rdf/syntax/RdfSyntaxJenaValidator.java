@@ -6,7 +6,6 @@ import cz.mvcr.datavalidator.core.ReportFactory;
 import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.RDFParser;
 import org.apache.jena.riot.RiotException;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

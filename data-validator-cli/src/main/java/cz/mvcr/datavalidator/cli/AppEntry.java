@@ -11,13 +11,12 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.URL;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
@@ -61,7 +60,7 @@ public class AppEntry {
         }
         LOG.debug("Validation completed.");
         (new StdOutReportWriter()).writeReports(reports);
-        return reports.size() > 0 ? 1 : 0;
+        return !reports.isEmpty() ? 1 : 0;
     }
 
     private void setUtf8OutputEncoding() {
@@ -113,7 +112,8 @@ public class AppEntry {
                 String path = parameter.substring("file://".length());
                 configuration = ConfigurationAdapter.load(new File(path));
             } else {
-                configuration = ConfigurationAdapter.load(new URL(parameter));
+                configuration = ConfigurationAdapter.load(
+                        URI.create(parameter).toURL());
             }
         } else {
             configuration = ConfigurationAdapter.createDefaultConfiguration();

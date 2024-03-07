@@ -1,8 +1,10 @@
 package cz.mvcr.datavalidator.rdf.syntax;
 
 import com.apicatalog.jsonld.JsonLd;
-import com.apicatalog.jsonld.api.JsonLdError;
-import com.apicatalog.jsonld.api.impl.ToRdfApi;
+import com.apicatalog.jsonld.JsonLdError;
+import com.apicatalog.jsonld.JsonLdOptions;
+import com.apicatalog.jsonld.context.cache.LruCache;
+import com.apicatalog.jsonld.loader.LRUDocumentCache;
 import com.apicatalog.rdf.RdfDataset;
 import com.apicatalog.rdf.RdfLiteral;
 import com.apicatalog.rdf.RdfNQuad;
@@ -16,7 +18,6 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
-
 import java.io.File;
 
 public class JsonLdTitaniumLoader {
@@ -28,8 +29,12 @@ public class JsonLdTitaniumLoader {
     }
 
     public Model loadModel(File file) throws JsonLdError {
-        ToRdfApi api = JsonLd.toRdf(file.toURI());
-        RdfDataset dataset = api.get();
+        JsonLdOptions options = new JsonLdOptions();
+        options.setDocumentCache(new LruCache<>(16));
+        options.setDocumentLoader(
+                new LRUDocumentCache(options.getDocumentLoader(), 16));
+        RdfDataset dataset = JsonLd.toRdf(file.toURI()).options(options).get();
+        ;
         model = ModelFactory.createDefaultModel();
         for (RdfNQuad quad : dataset.toList()) {
             Statement statement = model.createStatement(

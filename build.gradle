@@ -1,6 +1,6 @@
 plugins {
     id 'checkstyle'
-    id 'com.github.spotbugs' version '4.0.5'
+    id "com.github.spotbugs" version '6.0.8'
 }
 
 allprojects {
@@ -20,18 +20,18 @@ subprojects {
         repositories {
             mavenCentral()
         }
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_20
+        targetCompatibility = JavaVersion.VERSION_20
         jar {
             archiveBaseName.set('data-validator')
         }
         dependencies {
-            testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.1'
-            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit', version: '0.13.1'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '0.13.1'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-engine', version: '0.13.1'
+            testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.3'
+            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.2'
+            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.2'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit', version: '1.2.1'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '1.2.1'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-engine', version: '1.2.1'
         }
         test {
             useJUnitPlatform()

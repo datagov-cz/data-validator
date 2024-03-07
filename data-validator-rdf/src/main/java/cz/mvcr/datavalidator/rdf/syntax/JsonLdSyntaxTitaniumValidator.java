@@ -1,16 +1,15 @@
 package cz.mvcr.datavalidator.rdf.syntax;
 
-import com.apicatalog.jsonld.api.JsonLdError;
-import com.apicatalog.jsonld.api.JsonLdErrorCode;
-import com.apicatalog.jsonld.api.JsonLdOptions;
+import com.apicatalog.jsonld.JsonLdError;
+import com.apicatalog.jsonld.JsonLdErrorCode;
+import com.apicatalog.jsonld.JsonLdOptions;
 import com.apicatalog.jsonld.document.Document;
 import com.apicatalog.jsonld.loader.DocumentLoaderOptions;
 import cz.mvcr.datavalidator.core.DataValidator;
 import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.ReportFactory;
-
-import javax.json.stream.JsonLocation;
-import javax.json.stream.JsonParsingException;
+import jakarta.json.stream.JsonLocation;
+import jakarta.json.stream.JsonParsingException;
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
@@ -44,14 +43,13 @@ public class JsonLdSyntaxTitaniumValidator implements DataValidator {
             return Collections.singletonList(
                     reportFactory.error(ex.getMessage()));
         }
-        if (cause instanceof JsonParsingException) {
-            JsonParsingException parsingEx = (JsonParsingException)cause;
-            JsonLocation location = parsingEx.getLocation();
+        if (cause instanceof JsonParsingException parsingException) {
+            JsonLocation location = parsingException.getLocation();
             return Collections.singletonList(
                     reportFactory.error(
                             ex.getMessage(),
-                            (int)location.getLineNumber(),
-                            (int)location.getColumnNumber()));
+                            (int) location.getLineNumber(),
+                            (int) location.getColumnNumber()));
         }
         return Collections.singletonList(
                 reportFactory.error(ex.getMessage()));

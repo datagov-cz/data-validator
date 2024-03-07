@@ -1,6 +1,6 @@
 package cz.mvcr.datavalidator.rdf.content;
 
-import com.apicatalog.jsonld.api.JsonLdError;
+import com.apicatalog.jsonld.JsonLdError;
 import cz.mvcr.datavalidator.core.ConfigurableValidator;
 import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.ReportFactory;
@@ -9,7 +9,6 @@ import org.apache.jena.graph.Graph;
 import org.apache.jena.riot.RDFDataMgr;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.Statement;
-
 import java.io.File;
 import java.util.Collections;
 import java.util.List;

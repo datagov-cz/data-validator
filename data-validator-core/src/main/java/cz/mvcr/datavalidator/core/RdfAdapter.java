@@ -6,7 +6,6 @@ import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.AbstractRDFHandler;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

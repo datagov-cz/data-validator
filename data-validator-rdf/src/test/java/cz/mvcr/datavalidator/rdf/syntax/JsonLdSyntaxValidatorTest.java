@@ -4,7 +4,6 @@ import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.rdf.TestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
 public class JsonLdSyntaxValidatorTest {
@@ -27,7 +26,8 @@ public class JsonLdSyntaxValidatorTest {
 
     @Test
     public void invalidFile002() {
-        JsonLdSyntaxTitaniumValidator validator = new JsonLdSyntaxTitaniumValidator();
+        JsonLdSyntaxTitaniumValidator validator =
+                new JsonLdSyntaxTitaniumValidator();
         List<Report> actual = validator.validate(
                 TestUtils.fileFromResource("syntax/invalid-002.jsonld"));
         Assertions.assertEquals(1, actual.size());
@@ -43,7 +43,8 @@ public class JsonLdSyntaxValidatorTest {
 
     @Test
     public void validJsonLdV11File004() {
-        JsonLdSyntaxTitaniumValidator validator = new JsonLdSyntaxTitaniumValidator();
+        JsonLdSyntaxTitaniumValidator validator =
+                new JsonLdSyntaxTitaniumValidator();
         List<Report> actual = validator.validate(
                 TestUtils.fileFromResource(
                         "syntax/valid-jsonld-v11-004.jsonld"));

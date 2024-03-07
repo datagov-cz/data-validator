@@ -2,9 +2,6 @@ package cz.mvcr.datavalidator.xml.schema;
 
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.ls.LSInput;
-
-import javax.naming.OperationNotSupportedException;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -20,7 +17,7 @@ public class SimpleLSInput implements LSInput {
 
     private String systemId;
 
-    private URL url;
+    private final URL url;
 
     public SimpleLSInput(
             String baseURI, String publicId, String systemId, URL url) {

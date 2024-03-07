@@ -12,7 +12,7 @@ public class DetectSchemaLocationTest {
         var actual = schemaDetector.detectSchemas(
                 TestUtils.fileFromResource("schema/invalid-001.xml"));
         Assertions.assertEquals(1, actual.size());
-        // To check for a value we need to deal with encoding.
+        // To check for a value we need to deal with encoding, so we ignore it.
     }
 
 }

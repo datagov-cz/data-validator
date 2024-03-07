@@ -1,7 +1,6 @@
 package cz.mvcr.datavalidator.cli.writer;
 
 import cz.mvcr.datavalidator.core.FileReport;
-
 import java.util.List;
 
 public class StdOutReportWriter {
@@ -21,7 +20,7 @@ public class StdOutReportWriter {
             line.append(report.column == null ? "0" : report.column);
             line.append(" ");
             line.append(report.message.replace("\n", "").replace("\r", ""));
-            System.out.println(line.toString());
+            System.out.println(line);
         }
     }
 

@@ -5,12 +5,12 @@ inputs:
     description: 'URL of the configuration.'
     required: true
   path:
-    description: 'Path to file or a directory.'
+    description: 'Path to file or a directory to validate.'
     required: false
     default: '/github/workspace'
 runs:
   using: 'docker'
-  image: '../Dockerfile'
+  image: 'docker://ghcr.io/datagov-cz/data-validator:main'
   args:
     - -c=${{ inputs.configuration }}
     - -p=${{ inputs.path }}

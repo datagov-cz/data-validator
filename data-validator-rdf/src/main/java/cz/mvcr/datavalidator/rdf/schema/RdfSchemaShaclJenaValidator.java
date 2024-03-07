@@ -1,6 +1,6 @@
 package cz.mvcr.datavalidator.rdf.schema;
 
-import com.apicatalog.jsonld.api.JsonLdError;
+import com.apicatalog.jsonld.JsonLdError;
 import cz.mvcr.datavalidator.core.ConfigurableValidator;
 import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.ReportFactory;
@@ -20,7 +20,6 @@ import org.apache.jena.sparql.core.Prologue;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.Value;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

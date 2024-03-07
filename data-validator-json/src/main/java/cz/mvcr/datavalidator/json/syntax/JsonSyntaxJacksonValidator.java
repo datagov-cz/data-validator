@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.node.MissingNode;
 import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.DataValidator;
 import cz.mvcr.datavalidator.core.ReportFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;

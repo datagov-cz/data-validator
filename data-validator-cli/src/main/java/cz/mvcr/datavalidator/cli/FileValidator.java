@@ -6,7 +6,6 @@ import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.ReportFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

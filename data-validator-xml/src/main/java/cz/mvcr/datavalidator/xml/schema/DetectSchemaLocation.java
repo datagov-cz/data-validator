@@ -3,7 +3,6 @@ package cz.mvcr.datavalidator.xml.schema;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -14,11 +13,11 @@ import java.util.List;
 
 public class DetectSchemaLocation extends DefaultHandler {
 
-    private final class StopParser extends SAXException {
+    private static final class StopParser extends SAXException {
 
     }
 
-    private List<String> schemas = new ArrayList<>();
+    private final List<String> schemas = new ArrayList<>();
 
     private final SAXParserFactory factory;
 

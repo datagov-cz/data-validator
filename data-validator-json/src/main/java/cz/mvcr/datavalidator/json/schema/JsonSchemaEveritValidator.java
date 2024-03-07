@@ -13,11 +13,11 @@ import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -61,7 +61,7 @@ public class JsonSchemaEveritValidator implements ConfigurableValidator {
     }
 
     protected void loadSchemaFromUrl(String urlAsString) throws IOException {
-        URL url = new URL(urlAsString);
+        URL url = URI.create(urlAsString).toURL();
         try (InputStream stream = url.openStream()) {
             JSONObject rawSchema = new JSONObject(new JSONTokener(stream));
             schema = SchemaLoader.load(rawSchema);
@@ -85,7 +85,7 @@ public class JsonSchemaEveritValidator implements ConfigurableValidator {
         try {
             schema.validate(fileContent);
         } catch (ValidationException ex) {
-            if (ex.getCausingExceptions().size() == 0) {
+            if (ex.getCausingExceptions().isEmpty()) {
                 return exceptionsToReports(Collections.singletonList(ex));
             } else {
                 return exceptionsToReports(ex.getCausingExceptions());

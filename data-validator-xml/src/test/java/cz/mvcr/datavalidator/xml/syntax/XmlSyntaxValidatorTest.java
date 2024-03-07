@@ -4,7 +4,6 @@ import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.xml.TestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
 public class XmlSyntaxValidatorTest {

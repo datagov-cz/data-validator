@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -28,7 +27,7 @@ public class UrlEncodingResourceResolver implements LSResourceResolver {
 
     private static URL createUrl(String location) {
         try {
-            return new URL(URI.create(location).toASCIIString());
+            return URI.create(URI.create(location).toASCIIString()).toURL();
         } catch (MalformedURLException ex) {
             return null;
         }

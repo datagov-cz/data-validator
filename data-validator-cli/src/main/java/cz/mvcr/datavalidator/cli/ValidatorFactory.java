@@ -14,10 +14,8 @@ import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
-
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ValidatorFactory {
 
@@ -29,7 +27,7 @@ public class ValidatorFactory {
                 .map(Statement::getObject)
                 .filter(value -> value instanceof IRI)
                 .map(Value::stringValue)
-                .collect(Collectors.toList());
+                .toList();
         for (String type : types) {
             switch (type) {
                 case Vocabulary.JacksonJsonSyntax:
@@ -92,7 +90,7 @@ public class ValidatorFactory {
         return new JsonLdSyntaxTitaniumValidator();
     }
 
-    private static  DataValidator createRdfNotEmpty() {
+    private static DataValidator createRdfNotEmpty() {
         return new RdfContentNotEmptyJenaValidator();
     }
 

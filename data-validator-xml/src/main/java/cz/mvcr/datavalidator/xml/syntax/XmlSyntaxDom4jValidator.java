@@ -7,14 +7,10 @@ import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Alternatives to consider http://www.edankert.com/validate.html
- */
 public class XmlSyntaxDom4jValidator implements DataValidator {
 
     private static final ReportFactory reportFactory =
@@ -51,8 +47,7 @@ public class XmlSyntaxDom4jValidator implements DataValidator {
         try {
             reader.read(file);
         } catch (DocumentException ex) {
-            if (ex.getCause() instanceof SAXParseException) {
-                SAXParseException cause = (SAXParseException) ex.getCause();
+            if (ex.getCause() instanceof SAXParseException cause) {
                 result.add(reportFactory.error(
                         ex.getMessage(),
                         cause.getLineNumber(),

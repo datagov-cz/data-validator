@@ -24,6 +24,7 @@ Validate syntax of files with extensions: *.jsonld, *.json, *.xml, *.ttl, *.trig
 		<urn:pattern> ".*.ttl", ".*.trig", ".*.nq", ".*.nt", ".*.rdf" ;
 		<urn:validator>
 			[ a <urn:JenaRdfSyntax> ; ]
+			, [ a <urn:Rdf4jRdfSyntax> ; ]
 	], [
 		<urn:pattern> ".*.xml" ;
 		<urn:validator>

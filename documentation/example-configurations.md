@@ -12,9 +12,9 @@ Validate syntax of files with extensions: *.jsonld, *.json, *.xml, *.ttl, *.trig
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://localhost/configuration> a <urn:DataValidatorConfiguration> ;
-    <urn:rule> [
-		<urn:pattern> ".*.jsonld" ;
-		<urn:validator>
+	<urn:rule> [
+	    <urn:pattern> ".*.jsonld" ;
+	    <urn:validator>
 		    [ a <urn:TitaniumJsonLdSyntax> ; ]
     ], [
 		<urn:pattern> ".*.json", ".*.jsonld" ;
@@ -31,6 +31,6 @@ Validate syntax of files with extensions: *.jsonld, *.json, *.xml, *.ttl, *.trig
 			[ a <urn:Dom4jXmlSyntax> ; ]
 	] ;
 	<urn:recursive> true ;
-    <urn:path> "./" ;
+		<urn:path> "./" ;
 .
 ```

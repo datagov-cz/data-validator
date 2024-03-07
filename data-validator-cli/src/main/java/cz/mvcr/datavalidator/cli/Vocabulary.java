@@ -31,19 +31,22 @@ public class Vocabulary {
     public static final String JenaRdfSyntax =
             prefix + "JenaRdfSyntax";
 
+    public static final String Rdf4jRdfSyntax =
+            prefix + "Rdf4jRdfSyntax";
+
     public static final String EveritJsonSchema =
             prefix + "EveritJsonSchema";
 
     public static final String XercesXmlSchema =
             prefix + "XercesXmlSchema";
 
-    public static final String JenaRdfSchaclSchema =
-            prefix + "JenaRdfSchaclSchema";
+    public static final String JenaRdfShaclSchema =
+            prefix + "JenaRdfShaclSchema";
 
     public static final String TitaniumJsonLdSyntax =
             prefix + "TitaniumJsonLdSyntax";
 
-    public static final String RdfNotEmpty =
+    public static final String JenaRdfNotEmpty =
             prefix + "JenaRdfNotEmpty";
 
 }

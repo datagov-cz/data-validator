@@ -26,11 +26,14 @@ public class RdfSyntaxJenaValidator implements DataValidator {
                     .source(stream)
                     .lang(RDFLanguages.filenameToLang(file.getName()))
                     .errorHandler(new ReportCollector(reportFactory, result))
+                    .strict(true)
+                    .checking(true)
                     .parse(new NoWhereStreamRDF());
         } catch (IOException ex) {
             result.add(reportFactory.error(ex.getMessage()));
         } catch (RiotException ex) {
-            // We already deal with this in the error handler.
+            // We utilize custom error handler above to handle this
+            // type of error.
         }
         return result;
     }

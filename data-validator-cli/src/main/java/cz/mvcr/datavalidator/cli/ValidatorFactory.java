@@ -7,6 +7,7 @@ import cz.mvcr.datavalidator.rdf.content.RdfContentNotEmptyJenaValidator;
 import cz.mvcr.datavalidator.rdf.schema.RdfSchemaShaclJenaValidator;
 import cz.mvcr.datavalidator.rdf.syntax.JsonLdSyntaxTitaniumValidator;
 import cz.mvcr.datavalidator.rdf.syntax.RdfSyntaxJenaValidator;
+import cz.mvcr.datavalidator.rdf.syntax.RdfSyntaxRdf4jValidator;
 import cz.mvcr.datavalidator.xml.schema.XmlSchemaXercesValidator;
 import cz.mvcr.datavalidator.xml.syntax.XmlSyntaxDom4jValidator;
 import org.eclipse.rdf4j.model.IRI;
@@ -36,16 +37,18 @@ public class ValidatorFactory {
                     return createDom4jXmlSyntax();
                 case Vocabulary.JenaRdfSyntax:
                     return createJenaRdfSyntax();
+                case Vocabulary.Rdf4jRdfSyntax:
+                    return createRdf4jRdfSyntax();
                 case Vocabulary.EveritJsonSchema:
                     return createEveritJsonSchema(resource, statements);
                 case Vocabulary.XercesXmlSchema:
                     return createXercesXmlSchema(resource, statements);
-                case Vocabulary.JenaRdfSchaclSchema:
+                case Vocabulary.JenaRdfShaclSchema:
                     return createJenaSchemaShacl(resource, statements);
                 case Vocabulary.TitaniumJsonLdSyntax:
                     return createTitaniumJsonLdSyntax();
-                case Vocabulary.RdfNotEmpty:
-                    return createRdfNotEmpty();
+                case Vocabulary.JenaRdfNotEmpty:
+                    return createJenaRdfNotEmpty();
                 default:
                     break;
             }
@@ -63,6 +66,10 @@ public class ValidatorFactory {
 
     private static DataValidator createJenaRdfSyntax() {
         return new RdfSyntaxJenaValidator();
+    }
+
+    private static DataValidator createRdf4jRdfSyntax() {
+        return new RdfSyntaxRdf4jValidator();
     }
 
     private static DataValidator createEveritJsonSchema(
@@ -90,7 +97,7 @@ public class ValidatorFactory {
         return new JsonLdSyntaxTitaniumValidator();
     }
 
-    private static DataValidator createRdfNotEmpty() {
+    private static DataValidator createJenaRdfNotEmpty() {
         return new RdfContentNotEmptyJenaValidator();
     }
 

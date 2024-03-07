@@ -19,11 +19,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Executor
+      - name: Build
         uses: docker/build-push-action@v3
         with:
           context: ./
-          file: ./executor/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ghcr.io/datagov-cz/data-validator:${{ github.ref_name }}
           cache-from: type=gha

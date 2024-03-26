@@ -7,7 +7,7 @@ Data Validator is available as Docker image at GitHub registry.
 The configuration bellow runs the validator with every push and pull request.
 Create an action file (e.g. `.github/workflows/data-validator.yml`) with following content:
 ```yaml
-name: Validator2
+name: Validate data files
 on:
   push:
   pull_request:
@@ -18,7 +18,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Data validator
-      uses: datagov-cz/data-validator/github@develop
+      uses: datagov-cz/data-validator/github@v2
       with:
         configuration: file://./.github/workflows/validate-syntax.ttl
 ```

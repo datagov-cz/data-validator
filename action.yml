@@ -10,7 +10,7 @@ inputs:
     default: '/github/workspace'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/datagov-cz/data-validator:main'
+  image: 'docker://ghcr.io/datagov-cz/data-validator:develop'
   args:
     - -c=${{ inputs.configuration }}
     - -p=${{ inputs.path }}

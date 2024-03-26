@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Data validator
-      uses: datagov-cz/data-validator/github@main
+      uses: datagov-cz/data-validator/github@develop
       with:
         configuration: file://./.github/workflows/validate-syntax.ttl
 ```

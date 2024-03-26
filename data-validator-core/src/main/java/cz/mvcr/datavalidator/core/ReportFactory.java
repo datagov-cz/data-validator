@@ -22,9 +22,7 @@ public class ReportFactory {
     }
 
     public Report warn(String message, Integer line, Integer column) {
-        return new Report(
-                validator.getClass().getName(),
-                line, column, message, Report.Type.WARNING);
+        return new Report(validator, line, column, message, Report.Type.WARNING);
     }
 
     public Report message(Report.Type type, String message) {

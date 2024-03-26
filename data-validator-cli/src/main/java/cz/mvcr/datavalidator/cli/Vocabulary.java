@@ -2,7 +2,7 @@ package cz.mvcr.datavalidator.cli;
 
 public class Vocabulary {
 
-    private static final String prefix = "urn:";
+    private static final String prefix = "urn:DataValidator:";
 
     public static final String Configuration =
             prefix + "DataValidatorConfiguration";

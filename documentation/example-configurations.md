@@ -11,26 +11,26 @@ Validate syntax of files with extensions: *.jsonld, *.json, *.xml, *.ttl, *.trig
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://localhost/configuration> a <urn:DataValidatorConfiguration> ;
-	<urn:rule> [
-	    <urn:pattern> ".*.jsonld" ;
-	    <urn:validator>
-		    [ a <urn:TitaniumJsonLdSyntax> ; ]
+<http://localhost/configuration> a <urn:DataValidator:DataValidatorConfiguration> ;
+	<urn:DataValidator:rule> [
+	    <urn:DataValidator:pattern> ".*.jsonld" ;
+	    <urn:DataValidator:validator>
+		    [ a <urn:DataValidator:TitaniumJsonLdSyntax> ; ]
     ], [
-		<urn:pattern> ".*.json", ".*.jsonld" ;
-		<urn:validator>
-			[ a <urn:JacksonJsonSyntax> ; ]
+		<urn:DataValidator:pattern> ".*.json", ".*.jsonld" ;
+		<urn:DataValidator:validator>
+			[ a <urn:DataValidator:JacksonJsonSyntax> ; ]
 	], [
-		<urn:pattern> ".*.ttl", ".*.trig", ".*.nq", ".*.nt", ".*.rdf" ;
-		<urn:validator>
-			[ a <urn:JenaRdfSyntax> ; ]
-			, [ a <urn:Rdf4jRdfSyntax> ; ]
+		<urn:DataValidator:pattern> ".*.ttl", ".*.trig", ".*.nq", ".*.nt", ".*.rdf" ;
+		<urn:DataValidator:validator>
+			[ a <urn:DataValidator:JenaRdfSyntax> ; ]
+			, [ a <urn:DataValidator:Rdf4jRdfSyntax> ; ]
 	], [
-		<urn:pattern> ".*.xml" ;
-		<urn:validator>
-			[ a <urn:Dom4jXmlSyntax> ; ]
+		<urn:DataValidator:pattern> ".*.xml" ;
+		<urn:DataValidator:validator>
+			[ a <urn:DataValidator:Dom4jXmlSyntax> ; ]
 	] ;
-	<urn:recursive> true ;
-		<urn:path> "./" ;
+	<urn:DataValidator:recursive> true ;
+		<urn:DataValidator:path> "./" ;
 .
 ```

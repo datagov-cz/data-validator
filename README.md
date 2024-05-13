@@ -31,34 +31,34 @@ See `documentation/example-configurations.md` file for examples of Data Validato
 
 ## Validators
 
-### urn:TitaniumJsonLdSyntax
+### urn:DataValidator:TitaniumJsonLdSyntax
 Check that file can be loaded as JSON-LD file with [Titanium JSON-LD](https://github.com/filip26/titanium-json-ld).
 
-### urn:JenaRdfNotEmpty
+### urn:DataValidator:JenaRdfNotEmpty
 Using [Jena](https://jena.apache.org/) loads the file and check it is not empty.
 
-### urn:JacksonJsonSyntax
+### urn:DataValidator:JacksonJsonSyntax
 Check that file can be loaded as JSON using [Jackson](https://github.com/FasterXML/jackson).
 
-### urn:JenaRdfSyntax
+### urn:DataValidator:JenaRdfSyntax
 Check that file can be loaded as RDF file using [Jena](https://jena.apache.org/).
 
 #### Known issues and limitations
 - Validator fails to detect space between literal and language tag.
 
-### urn:Rdf4jRdfSyntax
+### urn:DataValidator:Rdf4jRdfSyntax
 Check that file can be loaded as RDF file using [Eclipse RDF4J](https://rdf4j.org/).
 
-### urn:Dom4jXmlSyntax
+### urn:DataValidator:Dom4jXmlSyntax
 Check that file can be loaded as XML file using [Dom4j](https://dom4j.github.io/).
 
-### urn:EveritJsonSchema
+### urn:DataValidator:EveritJsonSchema
 Validate JSON file using [JSON Schema Validator](https://github.com/everit-org/json-schema).
 
 #### Configuration
 - urn:schema : Path to JSON-Schema file.
 
-### urn:XercesXmlSchema
+### urn:DataValidator:XercesXmlSchema
 Validate XML document using [dom4j](https://dom4j.github.io/) and [Apache Xerces2](https://mvnrepository.com/artifact/org.opengis.cite.xerces/xercesImpl-xsd11).
 
 #### Configuration
@@ -67,7 +67,7 @@ Validate XML document using [dom4j](https://dom4j.github.io/) and [Apache Xerces
 #### Known issues and limitations
 - Apache Xerces2 does not fully support XML Schema 1.1.
 
-### urn:JenaRdfShaclSchema
+### urn:DataValidator:JenaRdfShaclSchema
 Using [Jena](https://jena.apache.org/) loads RDF content and check compliance with given [SHACL](https://www.w3.org/TR/shacl/) shape.
 
 #### Configuration

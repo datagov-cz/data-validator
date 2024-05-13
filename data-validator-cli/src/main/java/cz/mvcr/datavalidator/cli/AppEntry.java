@@ -2,6 +2,7 @@ package cz.mvcr.datavalidator.cli;
 
 import cz.mvcr.datavalidator.cli.writer.StdOutReportWriter;
 import cz.mvcr.datavalidator.core.FileReport;
+import cz.mvcr.datavalidator.core.Report;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -60,7 +61,7 @@ public class AppEntry {
         }
         LOG.debug("Validation completed.");
         (new StdOutReportWriter()).writeReports(reports);
-        return !reports.isEmpty() ? 1 : 0;
+        return reports.stream().noneMatch(item -> item.type == Report.Type.ERROR) ? 0 : 1;
     }
 
     private void setUtf8OutputEncoding() {

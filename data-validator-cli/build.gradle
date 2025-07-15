@@ -22,7 +22,7 @@ java {
 }
 
 application {
-    mainClass = 'cz.mvcr.datavalidator.cli.AppEntry'
+    mainClass = 'cz.gov.data.datavalidator.cli.AppEntry'
 }
 
 installDist {

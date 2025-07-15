@@ -2,10 +2,13 @@ package cz.mvcr.datavalidator.rdf.syntax;
 
 import cz.mvcr.datavalidator.core.Report;
 import cz.mvcr.datavalidator.core.ReportFactory;
+import cz.mvcr.datavalidator.core.SuppressFBWarnings;
 import org.apache.jena.riot.RiotException;
 import org.apache.jena.riot.system.ErrorHandler;
+
 import java.util.List;
 
+@SuppressFBWarnings(value = "EI_EXPOSE_REP2", justification = "Objective is to fill in the given list.")
 public class ReportCollector implements ErrorHandler {
 
     private final ReportFactory reportFactory;

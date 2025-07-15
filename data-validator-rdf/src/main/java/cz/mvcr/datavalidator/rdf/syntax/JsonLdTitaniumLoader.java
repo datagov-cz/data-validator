@@ -34,7 +34,6 @@ public class JsonLdTitaniumLoader {
         options.setDocumentLoader(
                 new LRUDocumentCache(options.getDocumentLoader(), 16));
         RdfDataset dataset = JsonLd.toRdf(file.toURI()).options(options).get();
-        ;
         model = ModelFactory.createDefaultModel();
         for (RdfNQuad quad : dataset.toList()) {
             Statement statement = model.createStatement(
@@ -43,7 +42,9 @@ public class JsonLdTitaniumLoader {
                     createValue(quad.getObject()));
             model.add(statement);
         }
-        return model;
+        Model result = model;
+        model = null;
+        return result;
     }
 
     private Resource createResource(RdfResource resource) {

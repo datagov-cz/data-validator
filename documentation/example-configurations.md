@@ -1,6 +1,6 @@
 # Example configurations
 
-## Validate syntext
+## Validate syntax
 Validate syntax of files with extensions: *.jsonld, *.json, *.xml, *.ttl, *.trig, *.nq, *.nt, *.rdf.
 
 ```

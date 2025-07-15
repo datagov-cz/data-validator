@@ -6,6 +6,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ErrorHandlerReportCollector implements ErrorHandler {
@@ -45,7 +46,7 @@ public class ErrorHandlerReportCollector implements ErrorHandler {
     }
 
     public List<Report> getReports() {
-        return reports;
+        return Collections.unmodifiableList(reports);
     }
 
 }

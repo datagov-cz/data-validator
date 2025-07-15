@@ -1,13 +1,13 @@
 plugins {
     id 'checkstyle'
-    id "com.github.spotbugs" version '6.0.8'
+    id 'com.github.spotbugs' version '6.2.2'
 }
 
 allprojects {
     version = '1.0.0'
     repositories  {
         maven {
-            url "https://jitpack.io"
+            url = "https://jitpack.io"
         }
     }
 }
@@ -20,18 +20,19 @@ subprojects {
         repositories {
             mavenCentral()
         }
-        sourceCompatibility = JavaVersion.VERSION_20
-        targetCompatibility = JavaVersion.VERSION_20
+        sourceCompatibility = JavaVersion.VERSION_23
+        targetCompatibility = JavaVersion.VERSION_23
         jar {
             archiveBaseName.set('data-validator')
         }
         dependencies {
-            testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.3'
-            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.2'
-            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.2'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit', version: '1.2.1'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '1.2.1'
-            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-engine', version: '1.2.1'
+            testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.18'
+            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.13.3'
+            testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.13.3'
+            testRuntimeOnly    group: 'org.junit.platform', name: 'junit-platform-launcher'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit', version: '1.4.1'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '1.4.1'
+            testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-engine', version: '1.4.1'
         }
         test {
             useJUnitPlatform()
@@ -42,18 +43,14 @@ subprojects {
         spotbugsMain {
             reports {
                 html {
-                    enabled = true
-                    destination = file("$buildDir/reports/spotbugs/main.html")
-                    stylesheet = 'fancy-hist.xsl'
+                    outputLocation  = file("$buildDir/reports/spotbugs/main.html")
                 }
             }
         }
         spotbugsTest {
             reports {
                 html {
-                    enabled = true
-                    destination = file("$buildDir/reports/spotbugs/test.html")
-                    stylesheet = 'fancy-hist.xsl'
+                    outputLocation = file("$buildDir/reports/spotbugs/test.html")
                 }
             }
         }

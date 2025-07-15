@@ -21,6 +21,7 @@ public class RdfSyntaxJenaValidator implements DataValidator {
     @Override
     public List<Report> validate(File file) {
         List<Report> result = new ArrayList<>();
+        var parser = new JenaStatisticsStreamRDF();
         try (InputStream stream = new FileInputStream(file)) {
             RDFParser.create()
                     .source(stream)
@@ -28,12 +29,16 @@ public class RdfSyntaxJenaValidator implements DataValidator {
                     .errorHandler(new ReportCollector(reportFactory, result))
                     .strict(true)
                     .checking(true)
-                    .parse(new NoWhereStreamRDF());
+                    .parse(parser);
         } catch (IOException ex) {
             result.add(reportFactory.error(ex.getMessage()));
         } catch (RiotException ex) {
             // We utilize custom error handler above to handle this
             // type of error.
+        }
+        if (result.isEmpty() && parser.isEmpty()) {
+            // Emit if the file is empty.
+            result.add(reportFactory.error("File is empty."));
         }
         return result;
     }

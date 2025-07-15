@@ -4,7 +4,7 @@ import org.apache.jena.graph.Triple;
 import org.apache.jena.riot.system.StreamRDF;
 import org.apache.jena.sparql.core.Quad;
 
-public class NoWhereStreamRDF implements StreamRDF {
+public class JenaNoWhereStreamRDF implements StreamRDF {
 
     @Override
     public void start() {

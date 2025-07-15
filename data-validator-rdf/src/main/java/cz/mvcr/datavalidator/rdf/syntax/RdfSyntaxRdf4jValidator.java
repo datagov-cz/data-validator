@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
@@ -21,15 +23,20 @@ public class RdfSyntaxRdf4jValidator implements DataValidator {
 
     @Override
     public List<Report> validate(File file) {
+        var parser = new Rdf4jStatisticsRDFHandler();
         List<Report> result = new ArrayList<>();
         try (InputStream stream = new FileInputStream(file)) {
             RDFFormat format = getFormat(file);
             RDFParser rdfParser = Rio.createParser(format);
             // Do nothing handler.
-            rdfParser.setRDFHandler(new AbstractRDFHandler() {} );
+            rdfParser.setRDFHandler(parser);
             rdfParser.parse(stream, "http://localhost/");
         } catch (IOException | RuntimeException ex) {
             result.add(reportFactory.error(ex.getMessage()));
+        }
+        if (result.isEmpty() && parser.isEmpty()) {
+            // Emit if the file is empty.
+            result.add(reportFactory.error("File is empty."));
         }
         return result;
     }

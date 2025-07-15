@@ -27,7 +27,7 @@ import java.util.List;
 
 public class JsonSchemaEveritValidator implements ConfigurableValidator {
 
-    private static final String HAS_SCHEMA = "urn:schema";
+    private static final String HAS_SCHEMA = "urn:DataValidator:schema";
 
     private static final ReportFactory reportFactory =
             ReportFactory.getInstance(JsonSchemaEveritValidator.class);
@@ -105,8 +105,6 @@ public class JsonSchemaEveritValidator implements ConfigurableValidator {
             List<ValidationException> exceptions) {
         List<Report> result = new ArrayList<>();
         for (ValidationException exception : exceptions) {
-            String pointer = exception.getPointerToViolation();
-            String schema = exception.getSchemaLocation();
             String message = exception.getErrorMessage() ;
             // TODO Parse pointer and get location in a file.
             // https://stackoverflow.com/questions/5853087/reading-individual-json-events-using-jackson

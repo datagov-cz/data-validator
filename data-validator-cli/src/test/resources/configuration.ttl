@@ -5,23 +5,23 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://localhost/configuration> a <urn:DataValidatorConfiguration> ;
-    <urn:rule> [
-        <urn:pattern> "*.json", "*.jsonld" ;
-        <urn:validator>
-            [ a <urn:JacksonJsonSyntax> ; ],
-            [ a <urn:EveritJsonSchema> ;
-                <urn:schema> "{ \"type\": \"object\" } " ;
+<http://localhost/configuration> a <urn:DataValidator:DataValidatorConfiguration> ;
+    <urn:DataValidator:rule> [
+        <urn:DataValidator:pattern> "*.json", "*.jsonld" ;
+        <urn:DataValidator:validator>
+            [ a <urn:DataValidator:JacksonJsonSyntax> ; ],
+            [ a <urn:DataValidator:EveritJsonSchema> ;
+                <urn:DataValidator:schema> "{ \"type\": \"object\" } " ;
             ] ;
     ], [
-         <urn:pattern> "*.ttl", "*.jsonld" ;
-         <urn:validator>
-            [ a <urn:JenaRdfSyntax> ; ] ;
+         <urn:DataValidator:pattern> "*.ttl", "*.jsonld" ;
+         <urn:DataValidator:validator>
+            [ a <urn:DataValidator:JenaRdfSyntax> ; ] ;
     ], [
-         <urn:pattern> "*.xml" ;
-         <urn:validator>
-            [ a <urn:Dom4jXmlSyntax> ; ] ;
+         <urn:DataValidator:pattern> "*.xml" ;
+         <urn:DataValidator:validator>
+            [ a <urn:DataValidator:Dom4jXmlSyntax> ; ] ;
     ] ;
-    <urn:path> "./" ;
-    <urn:recursive> true ;
+    <urn:DataValidator:path> "./" ;
+    <urn:DataValidator:recursive> true ;
 .

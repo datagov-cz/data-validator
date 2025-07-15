@@ -25,6 +25,23 @@ jobs:
 Part of the configuration is path to configuration file (`.github/workflows/validate-syntax.ttl`).
 Please see section [Configuring the validation] for more information about this file.
 
+## Running locally
+You can run Data Validator locally after building it from source.
+
+Requirements:
+- Java 23
+
+```shell
+git clone https://github.com/datagov-cz/data-validator.git
+cd data-validator
+# Build the project using two threads.
+./gradlew installDist --parallel --max-workers=2
+# Now you can run it using following command.
+# You should provide arguments like -c and -p for configuration and path to check respectively.
+.\dist\bin\data-validator-cli
+```
+
+
 ## Configuring the validation
 Data Validator utilize RDF-based configuration to configure the validation process.
 See `documentation/example-configurations.md` file for examples of Data Validator configurations.
@@ -75,3 +92,10 @@ Using [Jena](https://jena.apache.org/) loads RDF content and check compliance wi
 
 Tento repozitář je udržován v rámci projektu OPZ č. CZ.03.4.74/0.0/0.0/15_025/0004172.
 ![Evropská unie - Evropský sociální fond - Operační program Zaměstnanost](https://data.gov.cz/images/ozp_logo_cz.jpg)
+
+## Commands
+
+```shell
+# Update Gradle wrapper 
+./gradlew wrapper --gradle-version latest
+```
